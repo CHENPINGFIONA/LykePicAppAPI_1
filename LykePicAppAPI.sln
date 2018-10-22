@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LykePicApp.BAL", "LykePicApp.BAL\LykePicApp.BAL.csproj", "{F0F0030A-A778-4BAC-A6E9-3C7F8FB65B87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LykePicApp.DAL", "LykePicApp.DAL\LykePicApp.DAL.csproj", "{BF18785E-94EB-4741-9700-559A307410AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LykePicApp.API", "LykePicApp.API\LykePicApp.API.csproj", "{B86FC344-B685-40B7-AAC5-33559DFCF2D7}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LykePicApp.Script", "LykePicApp.Script\", "{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55369"
+		Debug.AspNetCompiler.PhysicalPath = "LykePicApp.Script\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55369\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55369"
+		Release.AspNetCompiler.PhysicalPath = "LykePicApp.Script\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55369\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55369"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0F0030A-A778-4BAC-A6E9-3C7F8FB65B87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F0030A-A778-4BAC-A6E9-3C7F8FB65B87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F0030A-A778-4BAC-A6E9-3C7F8FB65B87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F0030A-A778-4BAC-A6E9-3C7F8FB65B87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF18785E-94EB-4741-9700-559A307410AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF18785E-94EB-4741-9700-559A307410AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF18785E-94EB-4741-9700-559A307410AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF18785E-94EB-4741-9700-559A307410AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B86FC344-B685-40B7-AAC5-33559DFCF2D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B86FC344-B685-40B7-AAC5-33559DFCF2D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B86FC344-B685-40B7-AAC5-33559DFCF2D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B86FC344-B685-40B7-AAC5-33559DFCF2D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EADA689-A050-4A08-ADA7-4C9B0B531D2A}
+	EndGlobalSection
+EndGlobal
