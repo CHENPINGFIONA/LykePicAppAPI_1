@@ -27,7 +27,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LykePicApp.Script", "LykePi
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55369"
+		SlnRelativePath = "LykePicApp.Script\"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LykePicApp.Model", "LykePicApp.Model\LykePicApp.Model.csproj", "{50533F1E-92A2-459F-B8DC-84352A6C35AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +54,10 @@ Global
 		{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9BF71925-2A0C-4E8A-8E9C-030E41F811E5}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{50533F1E-92A2-459F-B8DC-84352A6C35AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50533F1E-92A2-459F-B8DC-84352A6C35AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50533F1E-92A2-459F-B8DC-84352A6C35AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50533F1E-92A2-459F-B8DC-84352A6C35AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

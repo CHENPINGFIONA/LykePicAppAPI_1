@@ -1,5 +1,4 @@
-﻿using LykePicApp.API.Models;
-using System;
+﻿using System;
 
 namespace LykePicApp.BAL
 {

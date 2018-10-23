@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LykePicApp.API.Models
+namespace LykePicApp.Model
 {
     public class UserPost
     {

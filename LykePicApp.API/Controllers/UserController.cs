@@ -1,10 +1,10 @@
-﻿using LykePicApp.API.Models;
+﻿using LykePicApp.Model;
 using System;
 using System.Web.Http;
 
 namespace LykePicApp.API.Controllers
 {
-    public class UserController : ApiController
+    public class UserController : BaseController
     {
         [HttpPost]
         public IHttpActionResult CreateUser(User user)

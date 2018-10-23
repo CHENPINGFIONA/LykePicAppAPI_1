@@ -1,10 +1,10 @@
-﻿using LykePicApp.API.Models;
+﻿using LykePicApp.Model;
 using System;
 using System.Web.Http;
 
 namespace LykePicApp.API.Controllers
 {
-    public class PostController : ApiController
+    public class PostController : BaseController
     {
         [HttpPost]
         public IHttpActionResult Post(UserPost userPost)
