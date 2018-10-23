@@ -3,9 +3,17 @@ using System.Data.SqlClient;
 
 namespace LykePicApp.DAL
 {
-    public class DAL
+    public static class DAL
     {
-        public DataSet Create(string queryString, string connectionString)
+        public static int Create(string queryString)
+        {
+            using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
+            {
+                return SqlHelper.ExecuteNonQuery(sqlConn, queryString);
+            }
+        }
+
+        public static DataSet RetrieveDataSet(string queryString)
         {
             using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
             {
@@ -13,27 +21,19 @@ namespace LykePicApp.DAL
             }
         }
 
-        public DataSet Retrieve(string queryString, string connectionString)
+        public static int Update(string queryString)
         {
             using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
             {
-                return SqlHelper.ExecuteDataset(sqlConn, queryString);
+                return SqlHelper.ExecuteNonQuery(sqlConn, queryString);
             }
         }
 
-        public DataSet Update(string queryString, string connectionString)
+        public static int Delete(string queryString)
         {
             using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
             {
-                return SqlHelper.ExecuteDataset(sqlConn, queryString);
-            }
-        }
-
-        public DataSet Delete(string queryString, string connectionString)
-        {
-            using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
-            {
-                return SqlHelper.ExecuteDataset(sqlConn, queryString);
+                return SqlHelper.ExecuteNonQuery(sqlConn, queryString);
             }
         }
     }
