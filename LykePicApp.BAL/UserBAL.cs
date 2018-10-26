@@ -7,6 +7,7 @@ namespace LykePicApp.BAL
     {
         public UserBAL Save(User user)
         {
+            //TODO
             var queryString = "INSERT";
 
             if (user.UserId.Equals(Guid.Empty))
@@ -19,6 +20,19 @@ namespace LykePicApp.BAL
             }
 
             return this;
+        }
+
+        public User GetUserById(Guid userId)
+        {
+            //TODO
+            return new User();
+        }
+
+        public User GetUserByName(string userName)
+        {
+            //TODO
+
+            return new User();
         }
     }
 }

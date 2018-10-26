@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace LykePicApp.Model
 {
@@ -10,6 +7,8 @@ namespace LykePicApp.Model
         public Guid LikeId { get; set; }
 
         public Guid UserId { get; set; }
+
+        public Guid PostId { get; set; }
 
         public DateTime CreatedDate { get; set; }
     }

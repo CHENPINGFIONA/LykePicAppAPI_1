@@ -1,5 +1,5 @@
-IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserLike]') AND type in (N'U'))
-DROP TABLE dbo.UserLike
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserLikes]') AND type in (N'U'))
+DROP TABLE dbo.UserLikes
 GO
 
 SET ANSI_NULLS ON
@@ -8,7 +8,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-Create Table dbo.UserLike 
+Create Table dbo.UserLikes 
 (
 	LikeId UNIQUEIDENTIFIER DEFAULT NEWSEQUENTIALID() primary key
    ,UserId UNIQUEIDENTIFIER NOT NULL
@@ -16,6 +16,5 @@ Create Table dbo.UserLike
 )
 
 Go
-
 
 
