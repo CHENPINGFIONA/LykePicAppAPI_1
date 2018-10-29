@@ -1,5 +1,5 @@
 ﻿using LykePicApp.BAL;
-using LykePicApp.Model;
+using LykePicApp.DAL;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -9,11 +9,12 @@ namespace LykePicApp.API.Controllers
     public class PostController : ApiController
     {
         [HttpPost]
-        public IHttpActionResult Post(UserPost userPost)
+        public IHttpActionResult UploadPost(UserPost post)
         {
             using (var bal = new UserPostBAL())
             {
-                bal.Save(userPost);
+                post.CreatedDate = DateTime.Now;
+                bal.Save(post);
 
                 return Ok("Data Successful Saved");
             }
@@ -24,7 +25,18 @@ namespace LykePicApp.API.Controllers
         {
             using (var bal = new UserPostBAL())
             {
-                return Ok(bal.GetUserPosts(userId));
+                var postList = bal.GetUserPosts(userId);
+                return Ok(postList);
+            }
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetPost(Guid postId)
+        {
+            using (var bal = new UserPostBAL())
+            {
+                var post = bal.GetUserPost(postId);
+                return Ok(post);
             }
         }
 
@@ -33,24 +45,17 @@ namespace LykePicApp.API.Controllers
         {
             using (var bal = new UserLikeBAL())
             {
-                var userLike = new UserLike()
-                {
-                    UserId = userId,
-                    PostId = postId,
-                    CreatedDate = DateTime.Now
-                };
-
-                bal.Like(userLike);
+                bal.Like(userId, postId);
                 return Ok("Data Successful Saved");
             }
         }
 
         [HttpGet]
-        public IHttpActionResult UnLike(Guid userId, Guid postId)
+        public IHttpActionResult DisLikePost(Guid userId, Guid postId)
         {
             using (var bal = new UserLikeBAL())
             {
-                bal.UnLike(userId, postId);
+                bal.DisLikePost(userId, postId);
 
                 return Ok("Data Successful Deleted");
             }

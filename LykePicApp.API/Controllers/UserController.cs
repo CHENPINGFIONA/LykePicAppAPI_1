@@ -1,5 +1,5 @@
 ﻿using LykePicApp.BAL;
-using LykePicApp.Model;
+using LykePicApp.DAL;
 using System;
 using System.Web.Http;
 
@@ -18,19 +18,30 @@ namespace LykePicApp.API.Controllers
         {
             using (var bal = new UserBAL())
             {
+                user.CreatedDate = DateTime.Now;
                 bal.Save(user);
 
                 return Ok("Data Successful Saved");
             }
         }
 
-        [Authorize]
         [HttpGet]
-        public IHttpActionResult GetUserInfo(Guid userId)
+        public IHttpActionResult GetUser(Guid userId)
         {
             using (var bal = new UserBAL())
             {
-                return Ok(bal.GetUserById(userId));
+                var user = bal.GetUserById(userId);
+                return Ok(user);
+            }
+        }
+
+        [HttpGet]
+        public IHttpActionResult SearchUsersByText(string text)
+        {
+            using (var bal = new UserBAL())
+            {
+                var userList = bal.SearchUsersByText(text);
+                return Ok(userList);
             }
         }
 
@@ -39,14 +50,7 @@ namespace LykePicApp.API.Controllers
         {
             using (var bal = new UserFollowerBAL())
             {
-                var userFollower = new UserFollower()
-                {
-                    UserId = userId,
-                    FollowerUserId = followerUserId,
-                    CreatedDate = DateTime.Now
-                };
-
-                bal.Follow(userFollower);
+                bal.Follow(userId, followerUserId);
                 return Ok("Data Successful Saved");
             }
         }
@@ -59,6 +63,16 @@ namespace LykePicApp.API.Controllers
                 bal.UnFollow(userId, followerUserId);
 
                 return Ok("Data Successful Deleted");
+            }
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetFollowerList(Guid userId)
+        {
+            using (var bal = new UserFollowerBAL())
+            {
+                var followerList = bal.GetFollowUserList(userId);
+                return Ok(followerList);
             }
         }
     }

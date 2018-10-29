@@ -1,30 +1,49 @@
 ﻿using LykePicApp.DAL;
-using LykePicApp.Model;
 using System;
-using System.Linq;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace LykePicApp.BAL
 {
     public class UserLikeBAL : BaseBAL
     {
-        public UserLikeBAL Like(UserLike userLike)
+        public void Like(Guid userId, Guid postId)
         {
-            //TODO
+            var userLike = new UserLike()
+            {
+                UserId = userId,
+                PostId = postId,
+                CreatedDate = DateTime.Now
+            };
 
-            return this;
+            DBContext.Create(userLike.GetInsertQuery());
         }
 
-        public UserLikeBAL UnLike(Guid userId, Guid postId)
+        public void DisLikePost(Guid userId, Guid postId)
         {
-            //TODO
+            var userLike = new UserLike()
+            {
+                UserId = userId,
+                PostId = postId
+            };
 
-            return this;
+            DBContext.Delete(userLike.GetDeleteQuery());
         }
 
         private UserLike GetUserLike(Guid userId, Guid postId)
         {
-            //TODO
-            return new UserLike();
+            var queryString = string.Format("SELECT * FROM [dbo].[UserLikes] WHERE UserId='{0} AND PostId='{1}'", userId, postId);
+            using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
+            {
+                var reader = SqlHelper.ExecuteReader(sqlConn, CommandType.Text, queryString);
+
+                while (reader.Read())
+                {
+                    return UserLike.From(reader);
+                }
+            }
+
+            return null;
         }
     }
 }

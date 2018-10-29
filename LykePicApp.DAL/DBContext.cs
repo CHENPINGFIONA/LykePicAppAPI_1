@@ -3,13 +3,13 @@ using System.Data.SqlClient;
 
 namespace LykePicApp.DAL
 {
-    public static class DAL
+    public static class DBContext
     {
         public static int Create(string queryString)
         {
             using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
             {
-                return SqlHelper.ExecuteNonQuery(sqlConn, queryString);
+                return SqlHelper.ExecuteNonQuery(sqlConn, CommandType.Text, queryString);
             }
         }
 
@@ -17,7 +17,15 @@ namespace LykePicApp.DAL
         {
             using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
             {
-                return SqlHelper.ExecuteDataset(sqlConn, queryString);
+                return SqlHelper.ExecuteDataset(sqlConn, CommandType.Text, queryString);
+            }
+        }
+
+        public static SqlDataReader RetrieveDataReader(string queryString)
+        {
+            using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
+            {
+                return SqlHelper.ExecuteReader(sqlConn, CommandType.Text, queryString);
             }
         }
 
@@ -25,7 +33,7 @@ namespace LykePicApp.DAL
         {
             using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
             {
-                return SqlHelper.ExecuteNonQuery(sqlConn, queryString);
+                return SqlHelper.ExecuteNonQuery(sqlConn, CommandType.Text, queryString);
             }
         }
 
@@ -33,7 +41,7 @@ namespace LykePicApp.DAL
         {
             using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
             {
-                return SqlHelper.ExecuteNonQuery(sqlConn, queryString);
+                return SqlHelper.ExecuteNonQuery(sqlConn, CommandType.Text, queryString);
             }
         }
     }

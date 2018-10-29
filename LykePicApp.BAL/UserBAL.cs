@@ -1,5 +1,8 @@
-﻿using LykePicApp.Model;
+﻿using LykePicApp.DAL;
 using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace LykePicApp.BAL
 {
@@ -7,16 +10,14 @@ namespace LykePicApp.BAL
     {
         public UserBAL Save(User user)
         {
-            //TODO
-            var queryString = "INSERT";
-
             if (user.UserId.Equals(Guid.Empty))
             {
-                DAL.DAL.Create(queryString);
+                user.CreatedDate = DateTime.Now;
+                DBContext.Create(user.GetInsertQuery());
             }
             else
             {
-                DAL.DAL.Update(queryString);
+                DBContext.Update(user.GetUpdateQuery());
             }
 
             return this;
@@ -24,15 +25,51 @@ namespace LykePicApp.BAL
 
         public User GetUserById(Guid userId)
         {
-            //TODO
-            return new User();
+            var queryString = string.Format("SELECT * FROM [dbo].[Users] WHERE UserId='{0}'", userId);
+            using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
+            {
+                var reader = SqlHelper.ExecuteReader(sqlConn, CommandType.Text, queryString);
+
+                while (reader.Read())
+                {
+                    return User.From(reader);
+                }
+            }
+
+            return null;
         }
 
         public User GetUserByName(string userName)
         {
-            //TODO
+            var queryString = string.Format("SELECT * FROM [dbo].[Users] WHERE UserName='{0}'", userName);
+            using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
+            {
+                var reader = SqlHelper.ExecuteReader(sqlConn, CommandType.Text, queryString);
 
-            return new User();
+                while (reader.Read())
+                {
+                    return User.From(reader);
+                }
+            }
+
+            return null;
+        }
+
+        public IList<User> SearchUsersByText(string text)
+        {
+            var userList = new List<User>();
+            var queryString = string.Format("SELECT * FROM [dbo].[Users] WHERE UserName LIKE '%{0}%'", text);
+            using (SqlConnection sqlConn = DatabaseHelper.GetConnection())
+            {
+                var reader = SqlHelper.ExecuteReader(sqlConn, CommandType.Text, queryString);
+
+                while (reader.Read())
+                {
+                    userList.Add(User.From(reader));
+                }
+            }
+
+            return userList;
         }
     }
 }

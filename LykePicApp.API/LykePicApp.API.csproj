@@ -150,7 +150,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -186,9 +185,9 @@
       <Project>{F0F0030A-A778-4BAC-A6E9-3C7F8FB65B87}</Project>
       <Name>LykePicApp.BAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LykePicApp.Model\LykePicApp.Model.csproj">
-      <Project>{50533F1E-92A2-459F-B8DC-84352A6C35AD}</Project>
-      <Name>LykePicApp.Model</Name>
+    <ProjectReference Include="..\LykePicApp.DAL\LykePicApp.DAL.csproj">
+      <Project>{BF18785E-94EB-4741-9700-559A307410AE}</Project>
+      <Name>LykePicApp.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

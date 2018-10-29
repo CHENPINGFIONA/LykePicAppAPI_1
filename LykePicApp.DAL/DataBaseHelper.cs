@@ -21,7 +21,7 @@ namespace LykePicApp.DAL
 
         public static SqlConnection GetConnection()
         {
-            return GetConnection("conn");
+            return GetConnection("LykePicAppConn");
         }
     }
 }

@@ -53,10 +53,6 @@
       <Project>{bf18785e-94eb-4741-9700-559a307410ae}</Project>
       <Name>LykePicApp.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LykePicApp.Model\LykePicApp.Model.csproj">
-      <Project>{50533f1e-92a2-459f-b8dc-84352a6c35ad}</Project>
-      <Name>LykePicApp.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
