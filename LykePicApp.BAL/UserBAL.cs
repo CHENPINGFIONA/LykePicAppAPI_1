@@ -8,10 +8,23 @@ namespace LykePicApp.BAL
 {
     public class UserBAL : BaseBAL
     {
+        public User Login(string userName, string password)
+        {
+            var user = GetUserByName(userName);
+            if (user != null && user.Password.Equals(password))
+            {
+                return user;
+            }
+
+            return null;
+        }
+
         public UserBAL Save(User user)
         {
             if (user.UserId.Equals(Guid.Empty))
             {
+                ValidateUserExist(user.UserName);
+
                 user.CreatedDate = DateTime.Now;
                 DBContext.Create(user.GetInsertQuery());
             }
@@ -70,6 +83,15 @@ namespace LykePicApp.BAL
             }
 
             return userList;
+        }
+
+        private void ValidateUserExist(string userName)
+        {
+            var temp = GetUserByName(userName);
+            if (temp != null)
+            {
+                throw new Exception("User Name already exist in the system.");
+            }
         }
     }
 }

@@ -14,6 +14,17 @@ namespace LykePicApp.API.Controllers
         }
 
         [HttpPost]
+        public IHttpActionResult Login(string userName, string password)
+        {
+            using (var bal = new UserBAL())
+            {
+                var user = bal.Login(userName, password);
+
+                return Ok(user);
+            }
+        }
+
+        [HttpPost]
         public IHttpActionResult CreateUser(User user)
         {
             using (var bal = new UserBAL())
